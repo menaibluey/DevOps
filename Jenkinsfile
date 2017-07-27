@@ -9,7 +9,7 @@ pipeline {
     stage('Run unit tests') {
       steps {
         echo '"Executing PegaUnit test suite"'
-        httpRequest(url: 'http://localhost:8080/prweb/PRRestService/PegaUnit/Rule-Test-Unit-Case/pzExecuteTests?AccessGroup=Designs:Administrators', consoleLogResponseBody: true, acceptType: 'NOT_SET', contentType: 'NOT_SET', httpMode: 'POST', ignoreSslErrors: true, outputFile: '**/*.xml', responseHandle: 'STRING')
+        httpRequest(url: 'http://localhost:8080/prweb/PRRestService/PegaUnit/Rule-Test-Unit-Case/pzExecuteTests?AccessGroup=Designs:Administrators', consoleLogResponseBody: true, acceptType: 'NOT_SET', contentType: 'NOT_SET', httpMode: 'POST', ignoreSslErrors: true, outputFile: '**/*.xml', responseHandle: 'STRING', authentication: 'PegaUnitTest')
       }
     }
     stage('Merge branch') {
